@@ -3,7 +3,7 @@ import React from 'react'
 
 const DownloadScreen = () => {
   return (
-    <View>
+    <View className="flex-1 justify-center items-center">
       <Text>DownloadScreen</Text>
     </View>
   )

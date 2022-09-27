@@ -9,8 +9,10 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/screens/HomeScreen';
-import SettingScreen from './src/screens/ExploreScreen';
-
+import SettingScreen from './src/screens/SettingScreen';
+import ExploreScreen from './src/screens/ExploreScreen';
+import CategoryScreen from './src/screens/CategoryScreen';
+import DownloadScreen from './src/screens/DownloadScreen';
 const Tab = createBottomTabNavigator();
 
 function MyTabBar({state, descriptors, navigation}) {
@@ -75,26 +77,13 @@ const App = () => {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarStyle: {
-            backgroundColor: '#18011A',
-          },
         }}
         tabBar={props => <MyTabBar {...props} />}>
-        <Tab.Screen
-          name="Home"
-          options={{
-            tabBarColor: '#18011A',
-          }}
-          component={HomeScreen}
-        />
-        <Tab.Screen
-          name="Settings"
-          options={{
-            tabBarColor: '#18011A',
-          }}
-          component={SettingScreen}
-        />
-        
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Explore" component={ExploreScreen} />
+        <Tab.Screen name="Category" component={CategoryScreen} />
+        <Tab.Screen name="Download" component={DownloadScreen} />
+        <Tab.Screen name="Settings" component={SettingScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

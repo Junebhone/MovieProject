@@ -3,7 +3,7 @@ import React from 'react';
 
 const SettingScreen = () => {
   return (
-    <View>
+    <View className="flex-1 justify-center items-center">
       <Text>SettingScreen</Text>
     </View>
   );

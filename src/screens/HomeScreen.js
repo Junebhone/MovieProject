@@ -113,7 +113,7 @@ const HomeScreen = () => {
                   style={{
                     color: 'gray',
                   }}
-                  className="font-akrobat"
+                  className="font-akroba"
                 />
               </View>
             </BlurView>
