@@ -1,12 +1,12 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import {View, Text, SafeAreaView} from 'react-native';
+import React from 'react';
 
 const SettingScreen = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>SettingScreen</Text>
-    </View>
-  )
-}
+    </SafeAreaView>
+  );
+};
 
-export default SettingScreen
+export default SettingScreen;
