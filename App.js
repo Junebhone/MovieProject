@@ -1,36 +1,100 @@
-import {View, Text, StatusBar} from 'react-native';
+import {
+  View,
+  Text,
+  StatusBar,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/screens/HomeScreen';
-import SettingScreen from './src/screens/SettingScreen';
+import SettingScreen from './src/screens/ExploreScreen';
 
 const Tab = createBottomTabNavigator();
+
+function MyTabBar({state, descriptors, navigation}) {
+  return (
+    <SafeAreaView className="bg-[#18011A]">
+      <View className="bg-white h-10 flex-row items-center">
+        {state.routes.map((route, index) => {
+          const {options} = descriptors[route.key];
+          const label =
+            options.tabBarLabel !== undefined
+              ? options.tabBarLabel
+              : options.title !== undefined
+              ? options.title
+              : route.name;
+
+          const isFocused = state.index === index;
+
+          const onPress = () => {
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            });
+
+            if (!isFocused && !event.defaultPrevented) {
+              // The `merge: true` option makes sure that the params inside the tab screen are preserved
+              navigation.navigate({name: route.name, merge: true});
+            }
+          };
+
+          const onLongPress = () => {
+            navigation.emit({
+              type: 'tabLongPress',
+              target: route.key,
+            });
+          };
+
+          return (
+            <TouchableOpacity
+              accessibilityRole="button"
+              accessibilityState={isFocused ? {selected: true} : {}}
+              accessibilityLabel={options.tabBarAccessibilityLabel}
+              testID={options.tabBarTestID}
+              onPress={onPress}
+              onLongPress={onLongPress}
+              style={{flex: 1}}>
+              <Text style={{color: isFocused ? '#673ab7' : '#222'}}>
+                {label}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    </SafeAreaView>
+  );
+}
+
 const App = () => {
   return (
     <NavigationContainer>
       <StatusBar barStyle={'light-content'} />
       <Tab.Navigator
         screenOptions={{
+          headerShown: false,
           tabBarStyle: {
             backgroundColor: '#18011A',
-            borderTopWidth: 0,
           },
-        }}>
+        }}
+        tabBar={props => <MyTabBar {...props} />}>
         <Tab.Screen
           name="Home"
-          component={HomeScreen}
           options={{
-            headerShown: false,
+            tabBarColor: '#18011A',
           }}
+          component={HomeScreen}
         />
         <Tab.Screen
           name="Settings"
-          component={SettingScreen}
           options={{
-            headerShown: false,
+            tabBarColor: '#18011A',
           }}
+          component={SettingScreen}
         />
+        
       </Tab.Navigator>
     </NavigationContainer>
   );

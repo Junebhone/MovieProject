@@ -1,12 +1,12 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const SettingScreen = () => {
+const CategoryScreen = () => {
   return (
     <View>
-      <Text>SettingScreen</Text>
+      <Text>CategoryScreen</Text>
     </View>
   );
 };
 
-export default SettingScreen;
+export default CategoryScreen;
