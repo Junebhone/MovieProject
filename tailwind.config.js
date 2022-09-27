@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         poppin: ['Poppins-Regular'],
+        akrobat: ['Akrobat-Regular'],
       },
     },
   },

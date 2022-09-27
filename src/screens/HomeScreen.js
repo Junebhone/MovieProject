@@ -76,7 +76,9 @@ const HomeScreen = () => {
             </BlurView>
           </TouchableOpacity>
           <View>
-            <Text className="text-[#F6C700] text-xl">Movies Watch</Text>
+            <Text className="text-[#F6C700] text-3xl font-akrobat">
+              Movies Watch
+            </Text>
           </View>
           <View>
             <Image
@@ -107,20 +109,20 @@ const HomeScreen = () => {
                 <TextInput
                   placeholder="Search Here"
                   keyboardType="default"
-                  placeholderTextColor={'white'}
+                  placeholderTextColor={'gray'}
                   style={{
-                    color: 'white',
+                    color: 'gray',
                   }}
+                  className="font-akrobat"
                 />
               </View>
             </BlurView>
             <BlurView
               blurType="materialDark"
               blurAmount={80}
-              reducedTransparencyFallbackColor="black"
-              style={{}}>
+              reducedTransparencyFallbackColor="black">
               <View className="flex-row  items-center space-x-2 p-3">
-                <Text className="text-white">Filter</Text>
+                <Text className="text-white font-akrobat">Filter</Text>
                 <AdjustmentsHorizontalIcon size={24} color="white" />
               </View>
             </BlurView>
@@ -129,15 +131,24 @@ const HomeScreen = () => {
         <ScrollView
           horizontal
           contentContainerStyle={{
-            paddingHorizontal: 18,
+            marginHorizontal: 16,
+            paddingHorizontal: 16,
           }}
           showsHorizontalScrollIndicator={false}
           className="flex-row gap-8">
-          <Text className="text-white font-bold  text-base">All</Text>
-          <Text className="text-white font-bold  text-base">Movies</Text>
-          <Text className="text-white font-bold  text-base">TV Shows</Text>
-          <Text className="text-white font-bold  text-base">Series</Text>
-          <Text className="text-white font-bold  text-base">Live</Text>
+          <Text className="text-white font-bold font-akrobat text-xl">All</Text>
+          <Text className="text-white font-bold font-akrobat text-xl">
+            Movies
+          </Text>
+          <Text className="text-white font-bold font-akrobat text-xl">
+            TV Shows
+          </Text>
+          <Text className="text-white font-bold font-akrobat text-xl">
+            Series
+          </Text>
+          <Text className="text-white font-bold font-akrobat text-xl">
+            Live
+          </Text>
         </ScrollView>
         {/* Body */}
         {/* <ScrollView

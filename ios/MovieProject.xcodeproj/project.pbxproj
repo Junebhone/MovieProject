@@ -17,6 +17,7 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		95AF6E6E4C734E0F896FE4AA /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 817B686C4E594934876866DA /* Poppins-Regular.ttf */; };
 		E93AF504BB9542C0AF393187 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8A06F2D30CA41E0B1542449 /* Poppins-Medium.ttf */; };
+		EA1FCFDED47F4BCBBEF689C9 /* Akrobat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5318A1886C0C4FDCACD1E95C /* Akrobat-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-MovieProject-MovieProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieProject-MovieProjectTests.release.xcconfig"; path = "Target Support Files/Pods-MovieProject-MovieProjectTests/Pods-MovieProject-MovieProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		E8A06F2D30CA41E0B1542449 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		5318A1886C0C4FDCACD1E95C /* Akrobat-Regular.otf */ = {isa = PBXFileReference; name = "Akrobat-Regular.otf"; path = "../src/assets/fonts/Akrobat-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				5E83B89F885E4626B2F23786 /* Poppins-Bold.ttf */,
 				E8A06F2D30CA41E0B1542449 /* Poppins-Medium.ttf */,
 				817B686C4E594934876866DA /* Poppins-Regular.ttf */,
+				5318A1886C0C4FDCACD1E95C /* Akrobat-Regular.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				21F16DC19BB9477A88B087D6 /* Poppins-Bold.ttf in Resources */,
 				E93AF504BB9542C0AF393187 /* Poppins-Medium.ttf in Resources */,
 				95AF6E6E4C734E0F896FE4AA /* Poppins-Regular.ttf in Resources */,
+				EA1FCFDED47F4BCBBEF689C9 /* Akrobat-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
