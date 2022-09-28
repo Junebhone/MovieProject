@@ -2,10 +2,7 @@ import {View, Text, ScrollView} from 'react-native';
 import React from 'react';
 import MovieCard from './MovieCard';
 
-const FeaturedRow = ({id, title}) => {
-
-  
-
+const FeaturedRow = ({id, title, popularMovies}) => {
   return (
     <View>
       <View className="mt-4 flex-row items-center justify-between px-4">
@@ -21,10 +18,9 @@ const FeaturedRow = ({id, title}) => {
         }}
         showsHorizontalScrollIndicator={false}
         className="pt-4">
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+        {popularMovies?.map((movie, index) => {
+          return <MovieCard movie={movie} key={index} />;
+        })}
       </ScrollView>
     </View>
   );
