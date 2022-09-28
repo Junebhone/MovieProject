@@ -23,6 +23,10 @@ const App = () => {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
+          tabBarStyle: {
+            backgroundColor: '#18011A',
+            borderTopWidth: 0,
+          },
         }}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Explore" component={ExploreScreen} />

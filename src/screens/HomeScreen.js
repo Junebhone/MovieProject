@@ -26,7 +26,8 @@ const HomeScreen = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [lastestMovies, setLatestMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
   // const [refreshing, setRefreshing] = useState(false);
 
   // const onRefresh = useCallback(() => {
@@ -49,7 +50,6 @@ const HomeScreen = () => {
       .get('/movie/popular?language=en-US&page=1')
       .then(response => {
         setPopularMovies(response.data);
-        // console.log('response', response);
       })
       .catch(error => {
         setLoading(false);
@@ -60,10 +60,15 @@ const HomeScreen = () => {
 
   useEffect(() => {
     setLoading(true);
-    api.get('movie/latest').then(response => {
-      setLatestMovies(response.data);
-    }),
-      wait(1000).then(() => setLoading(false));
+    api.get('movie/top_rated?language=en-US&page=1').then(response => {
+      setTopRatedMovies(response.data);
+    });
+  }, []);
+  useEffect(() => {
+    setLoading(true);
+    api.get('/movie/now_playing?language=en-US&page=1').then(response => {
+      setNowPlayingMovies(response.data);
+    });
   }, []);
   return (
     <View className="flex-1 bg-[#18011A] ">
@@ -157,9 +162,10 @@ const HomeScreen = () => {
                   contentContainerStyle={{
                     marginHorizontal: 16,
                     paddingHorizontal: 16,
+                    marginBottom: 10,
                   }}
                   showsHorizontalScrollIndicator={false}
-                  className="flex-row gap-8">
+                  className="flex-row  space-x-10">
                   <Text className="text-white  font-akrobat text-xl">All</Text>
                   <Text className="text-white  font-akrobat text-xl">
                     Movies
@@ -173,22 +179,19 @@ const HomeScreen = () => {
                   <Text className="text-white  font-akrobat text-xl">Live</Text>
                 </ScrollView>
                 {/* Body */}
-                <ScrollView
-                  contentContainerStyle={{
-                    paddingBottom: 100,
-                  }}>
+                <ScrollView contentContainerStyle={{paddingBottom: 200}}>
                   {/* Featured Rows */}
                   <FeaturedRow
-                    key={1}
-                    id={1}
                     title="Popular"
-                    popularMovies={popularMovies.results}
+                    movieList={popularMovies.results}
                   />
                   <FeaturedRow
-                    key={2}
-                    id={2}
-                    title="Latest"
-                    popularMovies={lastestMovies.results}
+                    title="Top Rated"
+                    movieList={topRatedMovies.results}
+                  />
+                  <FeaturedRow
+                    title="Now Playing"
+                    movieList={nowPlayingMovies.results}
                   />
                 </ScrollView>
               </View>
