@@ -8,56 +8,57 @@ import {
   TextInput,
 } from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
-import api from '../Api/Api';
+import api from '../api';
 import {BlurView} from '@react-native-community/blur';
 import {
   MagnifyingGlassIcon,
   AdjustmentsHorizontalIcon,
 } from 'react-native-heroicons/outline';
+import FeaturedRow from '../components/FeaturedRow';
 
-// const wait = timeout => {
-//   return new Promise(resolve => setTimeout(resolve, timeout));
-// };
+const wait = timeout => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+};
 
 const HomeScreen = () => {
-  // const [popularMovies, setPopularMovies] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  // const [errorMessage, setErrorMessage] = useState('');
-  // const [refreshing, setRefreshing] = useState(false);
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [refreshing, setRefreshing] = useState(false);
 
-  // const onRefresh = useCallback(() => {
-  //   setRefreshing(true);
-  //   api
-  //     .get('/movie/popular?language=en-US&page=3')
-  //     .then(response => {
-  //       setPopularMovies(response.data);
-  //     })
-  //     .catch(error => {
-  //       setLoading(false);
-  //       setErrorMessage('Error Occured');
-  //     }),
-  //     wait(2000).then(() => setRefreshing(false));
-  // });
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    api
+      .get('/movie/popular?language=en-US&page=3')
+      .then(response => {
+        setPopularMovies(response.data);
+      })
+      .catch(error => {
+        setLoading(false);
+        setErrorMessage('Error Occured');
+      }),
+      wait(2000).then(() => setRefreshing(false));
+  });
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   api
-  //     .get('/movie/popular?language=en-US&page=3')
-  //     .then(response => {
-  //       setPopularMovies(response.data);
-  //       console.log('response', response);
-  //     })
-  //     .catch(error => {
-  //       setLoading(false);
-  //       setErrorMessage('Error Occured');
-  //     }),
-  //     wait(5000).then(() => setLoading(false));
-  // }, []);
+  useEffect(() => {
+    setLoading(true);
+    api
+      .get('/movie/popular?language=en-US&page=3')
+      .then(response => {
+        setPopularMovies(response.data);
+        console.log('response', response);
+      })
+      .catch(error => {
+        setLoading(false);
+        setErrorMessage('Error Occured');
+      }),
+      wait(5000).then(() => setLoading(false));
+  }, []);
   return (
     <View className="flex-1 bg-[#18011A] ">
       <SafeAreaView>
         {/* Header */}
-        <View className="flex-row justify-between items-center px-4">
+        {/* <View className="flex-row justify-between items-center px-4">
           <TouchableOpacity>
             <BlurView
               blurType="dark"
@@ -87,7 +88,7 @@ const HomeScreen = () => {
               className="w-12 h-12 rounded-md"
             />
           </View>
-        </View>
+        </View> */}
 
         {/* Search */}
         <View className="flex-row items-center flex-1  py-4 mx-4 ">
@@ -136,26 +137,23 @@ const HomeScreen = () => {
           }}
           showsHorizontalScrollIndicator={false}
           className="flex-row gap-8">
-          <Text className="text-white font-bold font-akrobat text-xl">All</Text>
-          <Text className="text-white font-bold font-akrobat text-xl">
-            Movies
-          </Text>
-          <Text className="text-white font-bold font-akrobat text-xl">
-            TV Shows
-          </Text>
-          <Text className="text-white font-bold font-akrobat text-xl">
-            Series
-          </Text>
-          <Text className="text-white font-bold font-akrobat text-xl">
-            Live
-          </Text>
+          <Text className="text-white  font-akrobat text-xl">All</Text>
+          <Text className="text-white  font-akrobat text-xl">Movies</Text>
+          <Text className="text-white  font-akrobat text-xl">TV Shows</Text>
+          <Text className="text-white  font-akrobat text-xl">Series</Text>
+          <Text className="text-white  font-akrobat text-xl">Live</Text>
         </ScrollView>
         {/* Body */}
-        {/* <ScrollView
-          className="bg-gray-100"
+        <ScrollView
           contentContainerStyle={{
             paddingBottom: 100,
-          }}></ScrollView> */}
+          }}>
+          {/* Featured Rows */}
+
+          <FeaturedRow key={1} id={1} title="Popular" />
+          <FeaturedRow key={2} id={2} title="Trending" />
+          <FeaturedRow key={3} id={3} title="New Movie" />
+        </ScrollView>
       </SafeAreaView>
     </View>
   );
