@@ -43,14 +43,7 @@ const Banner = () => {
           horizontal
           style={styles.wrap}>
           {images?.map((e, index) => {
-            return (
-              <Image
-                key={e}
-                resizeMethod="contain"
-                source={e}
-                style={styles.wrap}
-              />
-            );
+            return <Image key={e} source={e} style={styles.wrap} />;
           })}
         </ScrollView>
 
@@ -71,7 +64,7 @@ const Banner = () => {
 const styles = StyleSheet.create({
   wrap: {
     width: WIDTH - 25,
-    height: HEIGHT * 0.2,
+    height: HEIGHT * 0.25,
   },
   wrapDot: {
     position: 'absolute',

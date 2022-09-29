@@ -18,7 +18,6 @@ import {
 import FeaturedRow from '../components/FeaturedRow';
 import Banner from '../components/Banner';
 
-
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 };
@@ -47,14 +46,14 @@ const HomeScreen = () => {
 
   useEffect(() => {
     setLoading(true);
+    console.log('Am i call?');
     api
-      .get('/movie/popular?language=en-US&page=1')
+      .get('movie/popular?language=en-US&page=1')
       .then(response => {
         setPopularMovies(response.data);
       })
       .catch(error => {
         setLoading(false);
-        setErrorMessage('Error Occured');
       }),
       wait(1000).then(() => setLoading(false));
   }, []);
@@ -67,7 +66,7 @@ const HomeScreen = () => {
   }, []);
   useEffect(() => {
     setLoading(true);
-    api.get('/movie/now_playing?language=en-US&page=1').then(response => {
+    api.get('movie/now_playing?language=en-US&page=1').then(response => {
       setNowPlayingMovies(response.data);
     });
   }, []);
@@ -131,7 +130,6 @@ const HomeScreen = () => {
                       blurType="dark"
                       blurAmount={80}
                       reducedTransparencyFallbackColor="#FFFFFF"
-                      x
                       style={{
                         flex: 1,
                       }}>
