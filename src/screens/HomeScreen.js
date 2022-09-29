@@ -14,9 +14,10 @@ import {BlurView} from '@react-native-community/blur';
 import {
   MagnifyingGlassIcon,
   AdjustmentsHorizontalIcon,
-  HomeIcon,
 } from 'react-native-heroicons/outline';
 import FeaturedRow from '../components/FeaturedRow';
+import Banner from '../components/Banner';
+
 
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -70,6 +71,7 @@ const HomeScreen = () => {
       setNowPlayingMovies(response.data);
     });
   }, []);
+
   return (
     <View className="flex-1 bg-[#18011A] ">
       <SafeAreaView className="flex-1">
@@ -178,8 +180,11 @@ const HomeScreen = () => {
                   </Text>
                   <Text className="text-white  font-akrobat text-xl">Live</Text>
                 </ScrollView>
+
                 {/* Body */}
                 <ScrollView contentContainerStyle={{paddingBottom: 200}}>
+                  {/* Banner */}
+                  <Banner />
                   {/* Featured Rows */}
                   <FeaturedRow
                     title="Popular"
