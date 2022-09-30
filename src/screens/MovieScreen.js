@@ -61,7 +61,7 @@ const MovieScreen = () => {
         </TouchableOpacity>
       </View>
       <View className="m-3">
-        <Text className="font-akrobat text-2xl text-white">
+        <Text className="font-akrobat text-3xl text-white">
           {movieDetails?.title}
         </Text>
         <View className="flex-row  justify-between gap-2">
@@ -83,17 +83,68 @@ const MovieScreen = () => {
             <StarIcon size={14} color="#FFC401" />
           </View>
         </View>
-        <View className="flex-row my-3">
-          <View
-            className="p-3 rounded-lg"
-            style={{
-              backgroundColor: 'rgba(255,255,255,0.2)',
-            }}>
-            <Image
-              source={require('../assets/icons/heart.png')}
-              resizeMode="contain"
-              className="w-5 h-5"
-            />
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View className="flex-row py-3 gap-3">
+            <TouchableOpacity
+              className="p-3 rounded-xl justify-center items-center"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.2)',
+              }}>
+              <Image
+                source={require('../assets/icons/heart.png')}
+                resizeMode="contain"
+                className="w-6 h-6"
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              className="p-3 rounded-xl flex-row justify-center items-center"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.2)',
+              }}>
+              <Image
+                source={require('../assets/icons/imdb.png')}
+                resizeMode="cover"
+                className="w-16 h-6 rounded"
+              />
+              <Text className="text-xl font-akrobat pl-4 text-white">8.7</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              className="p-3 rounded-xl flex-row justify-center items-center"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.2)',
+              }}>
+              <Image
+                source={require('../assets/icons/rotten.png')}
+                resizeMode="cover"
+                className="w-16 h-6 rounded"
+              />
+              <Text className="text-xl font-akrobat pl-4 text-white">93%</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              className="p-3 rounded-xl flex-row justify-center items-center"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.2)',
+              }}>
+              <Image
+                source={require('../assets/icons/metacritic.png')}
+                resizeMode="cover"
+                className="w-16 h-6 rounded"
+              />
+              <Text className="text-xl font-akrobat pl-4 text-white">93%</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+        <View>
+          <Text className="text-white font-akrobat text-base mt-5">
+            {movieDetails.overview}
+          </Text>
+        </View>
+        <View>
+          <Text className="text-white font-akrobat text-xl my-4">
+            Cast and Crew
+          </Text>
+          <View>
+            <Image />
           </View>
         </View>
       </View>
