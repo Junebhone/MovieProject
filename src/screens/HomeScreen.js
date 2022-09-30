@@ -46,7 +46,6 @@ const HomeScreen = () => {
 
   useEffect(() => {
     setLoading(true);
-    console.log('Am i call?');
     api
       .get('movie/popular?language=en-US&page=1')
       .then(response => {
@@ -60,15 +59,21 @@ const HomeScreen = () => {
 
   useEffect(() => {
     setLoading(true);
-    api.get('movie/top_rated?language=en-US&page=1').then(response => {
-      setTopRatedMovies(response.data);
-    });
+    api
+      .get('movie/top_rated?language=en-US&page=1')
+      .then(response => {
+        setTopRatedMovies(response.data);
+      })
+      .catch(error => console.log(error));
   }, []);
   useEffect(() => {
     setLoading(true);
-    api.get('movie/now_playing?language=en-US&page=1').then(response => {
-      setNowPlayingMovies(response.data);
-    });
+    api
+      .get('movie/now_playing?language=en-US&page=1')
+      .then(response => {
+        setNowPlayingMovies(response.data);
+      })
+      .catch(error => console.log(error));
   }, []);
 
   return (
@@ -165,7 +170,7 @@ const HomeScreen = () => {
                     marginBottom: 10,
                   }}
                   showsHorizontalScrollIndicator={false}
-                  className="flex-row  space-x-10">
+                  className="flex-row  space-x-10 shadow-lg">
                   <Text className="text-white  font-akrobat text-xl">All</Text>
                   <Text className="text-white  font-akrobat text-xl">
                     Movies
@@ -184,6 +189,7 @@ const HomeScreen = () => {
                   {/* Banner */}
                   <Banner />
                   {/* Featured Rows */}
+
                   <FeaturedRow
                     title="Popular"
                     movieList={popularMovies.results}

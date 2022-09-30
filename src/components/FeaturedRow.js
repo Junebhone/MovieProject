@@ -1,8 +1,9 @@
 import {View, Text, ScrollView} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import MovieCard from './MovieCard';
 
-const FeaturedRow = ({id, title, movieList}) => {
+const FeaturedRow = ({title, movieList}) => {
+  const [movies, setMovies] = useState([]);
   return (
     <View>
       <View className="mt-4 flex-row items-center justify-between px-4">

@@ -18,8 +18,28 @@ import ExploreScreen from './src/screens/ExploreScreen';
 import CategoryScreen from './src/screens/CategoryScreen';
 import DownloadScreen from './src/screens/DownloadScreen';
 import Ionic from 'react-native-vector-icons/Ionicons';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import MovieScreen from './src/screens/MovieScreen';
 
 const Tab = createBottomTabNavigator();
+const HomeStack = createNativeStackNavigator();
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="Home"
+        options={{headerShown: false}}
+        component={HomeScreen}
+      />
+      <HomeStack.Screen
+        name="Movie"
+        options={{headerShown: false}}
+        component={MovieScreen}
+      />
+    </HomeStack.Navigator>
+  );
+}
 
 const App = () => {
   return (
@@ -36,7 +56,7 @@ const App = () => {
           },
           tabBarIcon: ({focused, icon, color}) => {
             let iconName;
-            if (route.name == 'Home') {
+            if (route.name == 'HomeStack') {
               iconName = focused ? 'ios-home' : 'ios-home-outline';
             } else if (route.name == 'Explore') {
               iconName = focused ? 'compass' : 'compass-outline';
@@ -51,9 +71,9 @@ const App = () => {
           },
         })}>
         <Tab.Screen
-          name="Home"
+          name="HomeStack"
           options={{headerShown: false}}
-          component={HomeScreen}
+          component={HomeStackScreen}
         />
         <Tab.Screen
           name="Explore"
