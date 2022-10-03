@@ -7,12 +7,14 @@ import {
   StarIcon,
 } from 'react-native-heroicons/outline';
 import api from '../api';
+import Cast from '../components/Cast';
 
 const MovieScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
   const [movieDetails, setMovieDetails] = useState({});
+  const [credits, setCredits] = useState([]);
 
   const {id} = route.params;
 
@@ -34,6 +36,17 @@ const MovieScreen = () => {
         .catch(error => console.log(error));
   }, [id]);
 
+  useEffect(() => {
+    setLoading(true),
+      api
+        .get(`movie/${id}/credits`)
+        .then(response => {
+          setCredits(response.data.cast);
+          setLoading(false);
+          // console.log(response.data.cast);
+        })
+        .catch(error => console.log(error));
+  }, [id]);
   return (
     <ScrollView className="flex-1 bg-[#18011A]">
       <View className="relative flex justify-center items-center">
@@ -139,13 +152,15 @@ const MovieScreen = () => {
             {movieDetails.overview}
           </Text>
         </View>
-        <View>
-          <Text className="text-white font-akrobat text-xl my-4">
-            Cast and Crew
-          </Text>
-          <View>
-            <Image />
-          </View>
+      </View>
+      <View>
+        <Text className="text-white font-akrobat mx-3 text-xl my-4">
+          Cast and Crew
+        </Text>
+        <View className="flex-row flex-wrap mx-3">
+          {credits?.map((credit, index) => {
+            return <Cast credit={credit} key={index} />;
+          })}
         </View>
       </View>
     </ScrollView>
