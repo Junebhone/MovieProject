@@ -93,22 +93,16 @@ const HomeScreen = () => {
             ) : (
               <View>
                 <View className="flex-row justify-between items-center px-4">
-                  <TouchableOpacity>
-                    <BlurView
-                      blurType="dark"
-                      blurAmount={32}
-                      reducedTransparencyFallbackColor="#FFFFFF"
-                      style={{
-                        borderRadius: 10,
-                      }}>
-                      <View className="p-2 rounded-lg">
-                        <Image
-                          resizeMode="contain"
-                          source={require('../assets/icons/menu.png')}
-                          className="w-8 h-8"
-                        />
-                      </View>
-                    </BlurView>
+                  <TouchableOpacity
+                    className="p-3 rounded-xl flex-row justify-center items-center"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.1)',
+                    }}>
+                    <Image
+                      source={require('../assets/icons/menu.png')}
+                      resizeMode="contain"
+                      className="w-8 h-8 rounded"
+                    />
                   </TouchableOpacity>
                   <View>
                     <Text className="text-[#F6C700] text-3xl font-akrobat">
@@ -125,53 +119,44 @@ const HomeScreen = () => {
                 </View>
 
                 {/* Search */}
-                <View className="flex-row items-center flex-1  py-4 mx-4 ">
-                  <BlurView
-                    style={{
-                      flexDirection: 'row',
-                      borderRadius: 10,
-                    }}>
-                    <BlurView
-                      blurType="dark"
-                      blurAmount={80}
-                      reducedTransparencyFallbackColor="#FFFFFF"
+                <View className="flex-row items-center  py-3 mx-4 ">
+                  <View className="flex-row rounded-lg overflow-hidden">
+                    <View
+                      className="flex-row  space-x-2 items-center flex-1 px-3"
                       style={{
-                        flex: 1,
+                        backgroundColor: 'rgba(255,255,255,0.1)',
                       }}>
-                      <View className="flex-row  space-x-2 items-center  p-3">
-                        <MagnifyingGlassIcon color="white" size={24} />
-                        <TextInput
-                          placeholder="Search Here"
-                          keyboardType="default"
-                          placeholderTextColor={'gray'}
-                          style={{
-                            color: 'gray',
-                          }}
-                          className="font-akroba"
-                        />
-                      </View>
-                    </BlurView>
-                    <BlurView
-                      blurType="materialDark"
-                      blurAmount={80}
-                      reducedTransparencyFallbackColor="black">
-                      <View className="flex-row  items-center space-x-2 p-3">
-                        <Text className="text-white font-akrobat">Filter</Text>
-                        <AdjustmentsHorizontalIcon size={24} color="white" />
-                      </View>
-                    </BlurView>
-                  </BlurView>
+                      <MagnifyingGlassIcon color="white" size={24} />
+                      <TextInput
+                        placeholder="Search Here"
+                        keyboardType="default"
+                        placeholderTextColor={'gray'}
+                        style={{
+                          color: 'gray',
+                        }}
+                        className="font-akroba"
+                      />
+                    </View>
+                    <View
+                      className="flex-row items-center space-x-2 p-3"
+                      style={{backgroundColor: 'rgba(255,255,255,0.15)'}}>
+                      <Text className="text-white font-akrobat">Filter</Text>
+                      <AdjustmentsHorizontalIcon size={24} color="white" />
+                    </View>
+                  </View>
                 </View>
                 <ScrollView
                   horizontal
                   contentContainerStyle={{
                     marginHorizontal: 16,
                     paddingHorizontal: 16,
-                    marginBottom: 10,
+                    marginBottom: 5,
                   }}
                   showsHorizontalScrollIndicator={false}
                   className="flex-row  space-x-10 shadow-lg">
-                  <Text className="text-white  font-akrobat text-xl">All</Text>
+                  <Text className="text-[#FF3501]  font-akrobat text-xl">
+                    All
+                  </Text>
                   <Text className="text-white  font-akrobat text-xl">
                     Movies
                   </Text>
