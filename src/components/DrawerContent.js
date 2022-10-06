@@ -43,6 +43,9 @@ const DrawerContent = props => {
             <Text className="text-white text-xl font-akrobat">Live</Text>
             <Text className="text-white text-xl font-akrobat">20</Text>
           </TouchableOpacity>
+          <View
+            className="h-[1px] w-full mt-10"
+            style={{backgroundColor: 'rgba(255, 255, 255, 0.25)'}}></View>
         </View>
       </DrawerContentScrollView>
     </View>
