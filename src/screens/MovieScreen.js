@@ -157,11 +157,14 @@ const MovieScreen = () => {
         <Text className="text-white font-akrobat mx-3 text-xl my-4">
           Cast and Crew
         </Text>
-        <View className="flex-row flex-wrap mx-3">
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          className="mx-3">
           {credits?.map((credit, index) => {
             return <Cast credit={credit} key={index} />;
           })}
-        </View>
+        </ScrollView>
       </View>
     </ScrollView>
   );
