@@ -304,7 +304,7 @@ PODS:
     - glog
   - react-native-blur (4.2.0):
     - React-Core
-  - react-native-safe-area-context (4.3.4):
+  - react-native-safe-area-context (4.4.1):
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
@@ -376,12 +376,39 @@ PODS:
     - React-jsi (= 0.70.1)
     - React-logger (= 0.70.1)
     - React-perflogger (= 0.70.1)
-  - RNScreens (3.17.0):
+  - RNGestureHandler (2.7.0):
+    - React-Core
+  - RNReanimated (2.10.0):
+    - DoubleConversion
+    - FBLazyVector
+    - FBReactNativeSpec
+    - glog
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
+    - React-Core
+    - React-Core/DevSupport
+    - React-Core/RCTWebSocket
+    - React-CoreModules
+    - React-cxxreact
+    - React-jsi
+    - React-jsiexecutor
+    - React-jsinspector
+    - React-RCTActionSheet
+    - React-RCTAnimation
+    - React-RCTBlob
+    - React-RCTImage
+    - React-RCTLinking
+    - React-RCTNetwork
+    - React-RCTSettings
+    - React-RCTText
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - RNScreens (3.18.0):
     - React-Core
     - React-RCTImage
   - RNSVG (12.3.0):
-    - React-Core
-  - RNVectorIcons (9.2.0):
     - React-Core
   - SocketRocket (0.6.0)
   - Yoga (1.14.0)
@@ -449,9 +476,10 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
-  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -543,12 +571,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNSVG:
     :path: "../node_modules/react-native-svg"
-  RNVectorIcons:
-    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -588,7 +618,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 1363be638eccfe1aea1b10dd42e632b0397e5ec8
   React-logger: 7bd569e3857d74ed412ce0a5c51f421ff7d4ca7f
   react-native-blur: 3e9c8e8e9f7d17fa1b94e1a0ae9fd816675f5382
-  react-native-safe-area-context: dfe5aa13bee37a0c7e8059d14f72ffc076d120e9
+  react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
   React-perflogger: 48c6b363e867d64b682e84f80ca45636bd65e19c
   React-RCTActionSheet: 33c74fe5c754835e3715c300618da9aa2f7203fa
   React-RCTAnimation: 2dbf0120d4d1ab7716079b4180f2ca89c465e46b
@@ -601,9 +631,10 @@ SPEC CHECKSUMS:
   React-RCTVibration: e9164827303fb6a5cf79e4c4af4846a09956b11f
   React-runtimeexecutor: a11d0c2e14140baf1e449264ca9168ae9ae6bbd0
   ReactCommon: 7f86326b92009925c6dcf93f8e825060171c379f
-  RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
+  RNGestureHandler: 7673697e7c0e9391adefae4faa087442bc04af33
+  RNReanimated: 60e291d42c77752a0f6d6f358387bdf225a87c6e
+  RNScreens: f3230dd008a7d0ce5c0a8bc78ff12cf2315bda24
   RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
-  RNVectorIcons: fcc2f6cb32f5735b586e66d14103a74ce6ad61f8
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: 6c8252e38d65aa387daee699eacf027e055e0b31
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a

@@ -17,6 +17,7 @@ import {
 } from 'react-native-heroicons/outline';
 import FeaturedRow from '../components/FeaturedRow';
 import Banner from '../components/Banner';
+import {useNavigation} from '@react-navigation/native';
 
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -28,6 +29,8 @@ const HomeScreen = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
+
+  const navigation = useNavigation();
   // const [refreshing, setRefreshing] = useState(false);
 
   // const onRefresh = useCallback(() => {
@@ -94,6 +97,7 @@ const HomeScreen = () => {
               <View>
                 <View className="flex-row justify-between items-center px-4">
                   <TouchableOpacity
+                    onPress={() => navigation.openDrawer()}
                     className="p-3 rounded-xl flex-row justify-center items-center"
                     style={{
                       backgroundColor: 'rgba(255,255,255,0.1)',
