@@ -15,12 +15,8 @@ const DrawerContent = props => {
         <View className="px-10 py-20">
           <View className="flex-row justify-between items-center ">
             <Text className="text-white text-5xl font-akrobat">Menu</Text>
-            <TouchableOpacity>
-              <XMarkIcon
-                color="white"
-                size={32}
-                onPress={() => props.navigation.closeDrawer()}
-              />
+            <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
+              <XMarkIcon color="white" size={32} />
             </TouchableOpacity>
           </View>
           <TouchableOpacity className="flex-row justify-between items-center py-1 mt-8">

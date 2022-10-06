@@ -48,8 +48,12 @@ const MovieScreen = () => {
         .catch(error => console.log(error));
   }, [id]);
   return (
-    <ScrollView className="flex-1 bg-[#18011A]">
-      <View className="relative flex justify-center items-center">
+    <ScrollView
+      className="flex-1 bg-[#18011A] pb-24"
+      contentContainerStyle={{
+        paddingBottom: 60,
+      }}>
+      <View className="relative flex justify-center items-center ">
         <Image
           source={{
             uri: `https://image.tmdb.org/t/p/original${movieDetails?.backdrop_path}`,
