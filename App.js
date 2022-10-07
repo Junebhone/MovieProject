@@ -211,7 +211,7 @@ const TabIcon = ({isFocused, tabIcon, index}) => {
       <Animated.View style={{transform: [{translateY}]}}>
         <Ionic
           name={isFocused ? tabIcon.activeIcon : tabIcon.inActiveIcon}
-          size={24}
+          size={isFocused ? 30 : 24}
           color={'white'}
         />
       </Animated.View>
