@@ -93,8 +93,8 @@ function Main() {
           title: false,
           headerShown: false,
           tabBarIcon: {
-            activeIcon: 'archive',
-            inActiveIcon: 'archive-outline',
+            activeIcon: 'download',
+            inActiveIcon: 'download-outline',
           },
         }}
         component={DownloadScreen}
